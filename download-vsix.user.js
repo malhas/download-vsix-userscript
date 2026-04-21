@@ -4,6 +4,8 @@
 // @version      1.0
 // @description  Adds download buttons for VSIX files in the VS Code Marketplace version history tab
 // @match        https://marketplace.visualstudio.com/items?*
+// @updateURL    https://raw.githubusercontent.com/malhas/download-vsix-userscript/main/download-vsix.user.js
+// @downloadURL  https://raw.githubusercontent.com/malhas/download-vsix-userscript/main/download-vsix.user.js
 // @grant        none
 // ==/UserScript==
 
