@@ -14,5 +14,5 @@ jobs:
           fetch-depth: 0
       - name: Push to GitLab Mirror
         run: |
-          git remote add gitlab https://lmalheir:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
+          git remote add gitlab https://oauth:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
           git push --mirror gitlab
