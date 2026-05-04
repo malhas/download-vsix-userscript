@@ -7,12 +7,22 @@ on:
 jobs:
   mirror:
     runs-on: ubuntu-latest
-    environment: Mirror
+    # environment: Mirror  <-- Only include this line if the secret is STILL in the Mirror environment!
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          
+      - name: Debug Secret
+        run: |
+          if [ -z "${{ secrets.GITLAB_TOKEN }}" ]; then
+            echo "❌ ERROR: The secret is EMPTY! GitHub Actions cannot find it."
+            exit 1
+          else
+            echo "✅ SUCCESS: The secret has a value."
+          fi
+
       - name: Push to GitLab Mirror
         run: |
-          git remote add gitlab https://oauth:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
+          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
           git push --mirror gitlab
