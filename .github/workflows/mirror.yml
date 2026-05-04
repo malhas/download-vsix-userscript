@@ -7,7 +7,7 @@ on:
 jobs:
   mirror:
     runs-on: ubuntu-latest
-    # environment: Mirror  <-- Only include this line if the secret is STILL in the Mirror environment!
+    environment: Mirror
     steps:
       - uses: actions/checkout@v4
         with:
