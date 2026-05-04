@@ -2,16 +2,17 @@ name: Mirror to GitLab
 on: 
   push:
   delete:
-  workflow_dispatch: # This enables the manual "Run workflow" button
+  workflow_dispatch:
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    environment: Mirror
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Push to GitLab Mirror
         run: |
-          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
+          git remote add gitlab https://lmalheir:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
           git push --mirror gitlab
