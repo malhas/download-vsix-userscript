@@ -1,5 +1,8 @@
 name: Mirror to GitLab
-on: [push, delete]
+on: 
+  push:
+  delete:
+  workflow_dispatch: # This enables the manual "Run workflow" button
 
 jobs:
   mirror:
