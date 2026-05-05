@@ -24,5 +24,5 @@ jobs:
 
       - name: Push to GitLab Mirror
         run: |
-          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
-          git push --mirror gitlab
+          git remote add gitlab https://lmalheir:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lmalheir/download-vsix-userscript.git
+          git push gitlab "refs/heads/*:refs/heads/*" "refs/tags/*:refs/tags/*" --force
